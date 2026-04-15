@@ -2,87 +2,166 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>给你的生日惊喜 🎂</title>
+<title>我们的故事 💖</title>
+
 <style>
 body {
-    background: linear-gradient(to bottom right, #ffc0cb, #ffe4e1);
-    color: #fff;
-    text-align: center;
-    font-family: "微软雅黑";
+    margin: 0;
     overflow: hidden;
+    font-family: "微软雅黑";
 }
 
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page1 { background: linear-gradient(#ff9eb5, #ffc0cb); }
+.page2 { background: linear-gradient(#ffc0cb, #ffe4e1); }
+.page3 { background: linear-gradient(#ffe4e1, #fff0f5); }
+.page4 { background: linear-gradient(#fff0f5, #ffd6e0); }
+
 h1 {
-    margin-top: 20%;
-    font-size: 40px;
-    animation: fadeIn 3s;
+    color: white;
+    font-size: 36px;
 }
 
 p {
+    color: white;
     font-size: 22px;
-    margin: 20px;
-    animation: fadeIn 5s;
+    padding: 20px;
+    text-align: center;
+    line-height: 1.9;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+.cat {
+    font-size: 60px;
+    animation: bounce 1.5s infinite;
 }
 
-/* 爱心 */
-.heart {
-    position: absolute;
-    color: pink;
-    animation: float 5s infinite;
+@keyframes bounce {
+    50% { transform: translateY(-10px); }
 }
 
-@keyframes float {
-    from {transform: translateY(0);}
-    to {transform: translateY(-100vh);}
+.flower {
+    position: fixed;
+    top: -10px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.big {
+    font-size: 50px;
+    animation: zoom 2s infinite alternate;
+}
+
+@keyframes zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
 }
 </style>
 </head>
 
 <body>
 
-<h1>🎂 生日快乐 🎂</h1>
-<p id="text"></p>
+<div class="container">
+
+<!-- 开头 -->
+<div class="page page1">
+    <h1>🎂 宝贝，生日快乐 🎂</h1>
+    <p>这一次，我想慢慢把心里话讲给你听 ❤️</p>
+</div>
+
+<!-- 相遇 -->
+<div class="page page2">
+    <p>我们是在网络上认识的 💕</p>
+    <p>隔着屏幕，其实很普通</p>
+    <p>但我见到你的第一眼</p>
+    <p>就已经忍不住心动了</p>
+</div>
+
+<!-- 初期 -->
+<div class="page page3">
+    <p>从第一天开始</p>
+    <p>你就一直对我很好</p>
+    <p>那种好，不是敷衍，是认真对待</p>
+    <p>让我一点一点开始在意你 ❤️</p>
+</div>
+
+<!-- 细节 -->
+<div class="page page4">
+    <p>你会在我不舒服的时候关心我</p>
+    <p>会陪着我</p>
+    <p>会陪我一起出去玩</p>
+    <p>也会记得我喜欢的小车模型 🚗</p>
+</div>
+
+<!-- 情绪 -->
+<div class="page page1">
+    <p>其实这些事情</p>
+    <p>别人看来可能很普通</p>
+    <p>但只有我知道</p>
+    <p>你对我的好，有多特别 💖</p>
+</div>
+
+<!-- 深一点 -->
+<div class="page page2">
+    <p>慢慢地</p>
+    <p>我开始习惯有你在</p>
+    <p>习惯和你聊天</p>
+    <p>习惯每天都想到你</p>
+</div>
+
+<!-- 升华 -->
+<div class="page page3">
+    <p>你不是突然闯进我的生活</p>
+    <p>而是慢慢走进来</p>
+    <p>然后一点一点，占据了很重要的位置 💘</p>
+</div>
+
+<!-- 未来 -->
+<div class="page page4">
+    <p>未来会发生什么我不知道</p>
+    <p>但我知道一件事</p>
+    <p>我想一直陪着你</p>
+    <p>走很久很久 ✨</p>
+</div>
+
+<!-- 结尾 -->
+<div class="page page1">
+    <h1 class="big">我爱你 ❤️</h1>
+    <p>不只是今天，是以后每一天</p>
+    <div class="cat">🐱</div>
+</div>
+
+</div>
 
 <script>
-let msg = [
-"4月16日，是一个特别的日子 💕",
-"因为这一天，世界上多了一个最可爱的你",
-"你是白羊座，像小太阳一样温暖 ☀️",
-"你喜欢粉色，喜欢猫咪 🐱",
-"而我，刚好喜欢这样的你 ❤️",
-"",
-"遇见你之后，生活变得温柔又明亮 ✨",
-"",
-"宝贝，生日快乐 🎂",
-"愿你每天都开心，被世界温柔以待 🌈",
-"",
-"我喜欢你，不止今天，而是每一天 💘"
-];
-
-let i = 0;
-function showText() {
-    if(i < msg.length){
-        document.getElementById("text").innerHTML += msg[i] + "<br>";
-        i++;
-        setTimeout(showText, 1500);
-    }
-}
-showText();
-
-// 爱心生成
-setInterval(() => {
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.innerHTML = "💖";
-    document.body.appendChild(heart);
-
-    setTimeout(()=>heart.remove(),5000);
+setInterval(()=>{
+    let flower=document.createElement("div");
+    flower.className="flower";
+    flower.innerHTML="🌸";
+    flower.style.left=Math.random()*100+"vw";
+    flower.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(flower);
+    setTimeout(()=>flower.remove(),8000);
 },300);
 </script>
 
