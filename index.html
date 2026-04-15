@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>给你的生日惊喜 🎂</title>
+<style>
+body {
+    background: linear-gradient(to bottom right, #ffc0cb, #ffe4e1);
+    color: #fff;
+    text-align: center;
+    font-family: "微软雅黑";
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 20%;
+    font-size: 40px;
+    animation: fadeIn 3s;
+}
+
+p {
+    font-size: 22px;
+    margin: 20px;
+    animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* 爱心 */
+.heart {
+    position: absolute;
+    color: pink;
+    animation: float 5s infinite;
+}
+
+@keyframes float {
+    from {transform: translateY(0);}
+    to {transform: translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎂 生日快乐 🎂</h1>
+<p id="text"></p>
+
+<script>
+let msg = [
+"4月16日，是一个特别的日子 💕",
+"因为这一天，世界上多了一个最可爱的你",
+"你是白羊座，像小太阳一样温暖 ☀️",
+"你喜欢粉色，喜欢猫咪 🐱",
+"而我，刚好喜欢这样的你 ❤️",
+"",
+"遇见你之后，生活变得温柔又明亮 ✨",
+"",
+"宝贝，生日快乐 🎂",
+"愿你每天都开心，被世界温柔以待 🌈",
+"",
+"我喜欢你，不止今天，而是每一天 💘"
+];
+
+let i = 0;
+function showText() {
+    if(i < msg.length){
+        document.getElementById("text").innerHTML += msg[i] + "<br>";
+        i++;
+        setTimeout(showText, 1500);
+    }
+}
+showText();
+
+// 爱心生成
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.innerHTML = "💖";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),5000);
+},300);
+</script>
+
+</body>
+</html>
